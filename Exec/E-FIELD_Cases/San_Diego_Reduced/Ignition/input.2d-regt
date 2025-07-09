@@ -28,6 +28,18 @@ amr.blocking_factor = 16                # Block factor in grid generation (min b
 amr.max_grid_size   = 64                # Max box size
 
 
+#amr.max_step            = 20000
+amr.stop_time           = 0.030 # (s)
+amr.cfl                 = 0.05
+amr.init_dt             = 0.000001
+amr.dt_shrink           = 0.01
+
+amr.check_int           = 20000
+amr.plot_int            = 1000
+amr.derive_plot_vars    = avg_pressure mag_vort mass_fractions # chargedistrib efieldx efieldy LorentzFx LorentzFy
+
+#amr.restart            = chk73016
+
 #--------------------------- Problem -------------------------------
 prob.Xf = 0.0011    # Radius of the fuel pipe           (m)
 prob.Xe = 0.0001    # Thickness of the extruded tube    (m)
@@ -75,15 +87,6 @@ peleLM.deltaT_iterMax        = 15
 peleLM.deltaT_crashIfFailing = 0
 peleLM.floor_species         = 1
 
-#amr.restart            = chk73016
-amr.check_int           = 20000
-amr.plot_int            = 1000
-amr.max_step            = 20000
-amr.dt_shrink           = 0.01
-amr.init_dt             = 0.000001
-amr.stop_time           = 0.030 # (s)
-amr.cfl                 = 0.05
-amr.derive_plot_vars    = avg_pressure mag_vort mass_fractions # chargedistrib efieldx efieldy LorentzFx LorentzFy 
 
 peleLM.chem_integrator   = "ReactorCvode"
 peleLM.use_typ_vals_chem = 1          # Use species/temp typical values in CVODE

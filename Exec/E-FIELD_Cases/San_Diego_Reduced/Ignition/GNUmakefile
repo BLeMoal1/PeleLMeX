@@ -1,8 +1,8 @@
-TOP = /home/efield_2025/PeleProject/PeleLMeX/Submodules
-AMREX_HOME         	?= /home/efield_2025/PeleProject/amrex
-PELELMEX_HOME      	?= ../../..
-PELE_PHYSICS_HOME  	?= ${TOP}/PelePhysics
-AMREX_HYDRO_HOME   	?= ${TOP}/AMReX-Hydro
+PELELMEX_HOME      	?= ../../../..
+AMREX_HOME         	?= ${PELELMEX_HOME}/Submodules/PelePhysics/Submodules/amrex
+PELE_PHYSICS_HOME  	?= ${PELELMEX_HOME}/Submodules/PelePhysics
+AMREX_HYDRO_HOME   	?= ${PELELMEX_HOME}/Submodules/AMReX-Hydro
+
 
 
 # AMReX
@@ -27,5 +27,5 @@ Chemistry_Model = Reduced_San_Diego
 Eos_Model	 	= Fuego
 Transport_Model = Simple
 
-include /home/efield_2025/PeleProject/PeleLMeX/Exec/Make.PeleLMeX
+include ${PELELMEX_HOME}/Exec/Make.PeleLMeX
 
