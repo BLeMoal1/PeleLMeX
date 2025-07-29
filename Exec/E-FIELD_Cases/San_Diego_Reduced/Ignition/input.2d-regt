@@ -31,6 +31,7 @@ amr.max_grid_size   = 64                # Max box size
 #amr.max_step           = 20000
 amr.stop_time           = 1 # (s)
 amr.cfl                 = 0.05
+amr.cfl                 = 0.08
 amr.init_dt             = 0.000001
 amr.dt_shrink           = 0.01
 #amr.max_dt              = 1.e-7
@@ -123,7 +124,7 @@ gmres.verbose     = 0
 gmres.max_restart = 3
 
 #--------------------REFINEMENT CONTROL------------------------
-#amr.refinement_indicators = HR flamme
+amr.refinement_indicators = HR
 
 #amr.HR.max_level     = 2
 #amr.HR.value_greater = 5e7

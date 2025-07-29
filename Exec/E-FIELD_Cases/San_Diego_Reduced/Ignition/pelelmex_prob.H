@@ -9,9 +9,9 @@
 #include <PMFData.H>
 #include <PelePhysics.H>
 
-#ifdef PELE_USE_EFIELD
-#include <EOS_Extension.H>
-#include <PeleLMEF_Constants.H>
+#ifdef PELE_USE_PLASMA
+#include <PeleLMeX_EOS_Extension.H>
+#include <PeleLMeX_EF_Constants.H>
 #endif
 
 using namespace amrex::literals;
@@ -127,7 +127,7 @@ struct MyProblemSpecificFunctions : public DefaultProblemSpecificFunctions
 				amrex::Real molefrac[NUM_SPECIES] = {0.0};
 				amrex::Real massfrac[NUM_SPECIES] = {0.0};
 				
-				#ifdef PELE_USE_EFIELD
+				#ifdef PELE_USE_PLASMA
 				amrex::Real mw[NUM_SPECIES] = {0.0};
 				amrex::Real zk[NUM_SPECIES] = {0.0};
 				#endif
@@ -152,7 +152,7 @@ struct MyProblemSpecificFunctions : public DefaultProblemSpecificFunctions
 							state(i,j,k,VELY) = prob_parm.V_air;,
 							state(i,j,k,VELZ) = 0.0;);
 					
-					#ifdef PELE_USE_EFIELD
+					#ifdef PELE_USE_PLASMA
 					// nE : zk, Charge distribution
 					eos.molecular_weight(mw);
 					pele::physics::eos::charge_mass(zk);
@@ -218,7 +218,7 @@ struct MyProblemSpecificFunctions : public DefaultProblemSpecificFunctions
 								state(i,j,k,VELY) = prob_parm.V_fu;,
 								state(i,j,k,VELZ) = 0.0;);
 					
-					#ifdef PELE_USE_EFIELD
+					#ifdef PELE_USE_PLASMA
 					// nE : zk, Charge distribution
 					eos.molecular_weight(mw);
 					pele::physics::eos::charge_mass(zk);
@@ -254,7 +254,7 @@ struct MyProblemSpecificFunctions : public DefaultProblemSpecificFunctions
 								state(i,j,k,VELY) = prob_parm.V_ox;,
 								state(i,j,k,VELZ) = 0.0;);
 					
-					#ifdef PELE_USE_EFIELD
+					#ifdef PELE_USE_PLASMA
 					// nE : zk, Charge distribution
 					eos.molecular_weight(mw);
 					pele::physics::eos::charge_mass(zk);
@@ -290,7 +290,7 @@ struct MyProblemSpecificFunctions : public DefaultProblemSpecificFunctions
 								state(i,j,k,VELY) = prob_parm.V_air;,
 								state(i,j,k,VELZ) = 0.0;);
 					
-					#ifdef PELE_USE_EFIELD
+					#ifdef PELE_USE_PLASMA
 					// nE : zk, Charge distribution
 					eos.molecular_weight(mw);
 					pele::physics::eos::charge_mass(zk);
@@ -347,7 +347,7 @@ struct MyProblemSpecificFunctions : public DefaultProblemSpecificFunctions
 				state(i,j,k,FIRSTSPEC+n) = massfrac[n] * state(i,j,k,DENSITY);
 				}
 				
-				#ifdef PELE_USE_EFIELD
+				#ifdef PELE_USE_PLASMA
 				state(i,j,k,NE) *= state(i,j,k,DENSITY);
 				state(i,j,k,PHIV) = 0.0;
 				#endif
@@ -461,7 +461,7 @@ struct MyProblemSpecificFunctions : public DefaultProblemSpecificFunctions
 				}
 			} 
 			
-			#ifdef PELE_USE_EFIELD
+			#ifdef PELE_USE_PLASMA
 			// BC Efield
 			if (idir == 1) // y-dir
 			{  

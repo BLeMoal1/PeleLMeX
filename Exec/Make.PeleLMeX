@@ -75,8 +75,8 @@ ifeq ($(shell test 0$(PELELM_NUM_ODE) -gt 0; echo $$?), 0)
    DEFINES += -DNUM_ODE=$(PELELM_NUM_ODE)
 endif
 
-Bpack += $(foreach dir, $(LMdirs), $(PELE_HOME)/$(dir)/Make.package)
-Blocs += $(foreach dir, $(LMdirs), $(PELE_HOME)/$(dir))
+Bpack += $(foreach dir, $(LMdirs), $(PELELMEX_HOME)/$(dir)/Make.package)
+Blocs += $(foreach dir, $(LMdirs), $(PELELMEX_HOME)/$(dir))
 
 #---------------
 # PelePhysics sources
@@ -215,7 +215,7 @@ AMReX_buildInfo.cpp:
 	$(AMREX_HOME)/Tools/C_scripts/makebuildinfo_C.py \
       --amrex_home "$(AMREX_HOME)" \
       --COMP "$(COMP)" --COMP_VERSION "$(COMP_VERSION)" \
-      --GIT "$(PELE_HOME) $(AMREX_HOME) $(PELE_PHYSICS_HOME) $(AMREX_HYDRO_HOME) $(SUNDIALS_HOME)"
+      --GIT "$(PELELMEX_HOME) $(AMREX_HOME) $(PELE_PHYSICS_HOME) $(AMREX_HYDRO_HOME) $(SUNDIALS_HOME)"
 
 #---------------
 # Rules
